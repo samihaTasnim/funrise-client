@@ -2,7 +2,7 @@
 
 ### A toy store where you can find all of your kid's favourite toys. All in one place!
 
-** What can be found in the website ** 
+__ What can be found in the website __ 
 1. A homepage 
 2. Login page with private routes
 3. Admin page to add toys and process of deleting them by item
