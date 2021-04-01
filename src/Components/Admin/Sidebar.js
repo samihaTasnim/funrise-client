@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTasks } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const linkStyle = {
   textDecoration: 'none',
@@ -14,11 +18,11 @@ const backgroundStyle = {
 const Sidebar = () => {
   return (
     <div style={backgroundStyle} className="p-3 m-2 rounded">
-      <ul className="m-5 p-4">
-        <li><Link to="/manage" style={linkStyle}>Manage Product</Link></li>
-        <li><Link to="/admin" style={linkStyle}>Add Product</Link></li>
-        <li><Link to="/manage" style={linkStyle}>Edit Product</Link></li>
-      </ul>
+      <div className="m-5 p-4">
+        <p><Link to="/manage" style={linkStyle}><FontAwesomeIcon icon={faTasks}/> &nbsp; Manage Product</Link></p>
+        <p><Link to="/admin" style={linkStyle}><FontAwesomeIcon icon={faPlus} /> &nbsp; Add Product</Link></p>
+        <p><Link to="/manage" style={linkStyle}><FontAwesomeIcon icon={faEdit} /> &nbsp; Edit Product</Link></p>
+      </div>
     </div>
   );
 };

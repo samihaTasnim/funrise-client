@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Manage = () => {
 
@@ -8,6 +10,17 @@ const Manage = () => {
     .then(res => res.json())
     .then(data => setInfo(data))
   },[])
+
+   const deleteItem = (id) => {
+     console.log(id);
+     fetch(`https://gentle-cove-64506.herokuapp.com/delete/${id}`, {
+      method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(result => {
+          console.log(result);
+      })
+   }
 
   return (
     <div className="container mt-5">
@@ -29,7 +42,7 @@ const Manage = () => {
                   <td>{product.name}</td>
                   <td>{product.weight}</td>
                   <td>$ {product.price}</td>
-                  <td>{product.date}</td>
+                  <td> &nbsp; <FontAwesomeIcon icon={faTrashAlt} onClick={() => deleteItem(`${product._id}`)} style={{cursor: 'pointer'}}/></td>
                 </tr>
               ))
             }

@@ -24,7 +24,7 @@ const Admin = () => {
       },
       body: JSON.stringify(productInfo)
     })
-    .then(res => console.log('server side response', res))
+    .then(res => console.log(res))
   }
   
   const getImage = (event) => {
