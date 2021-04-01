@@ -1,5 +1,4 @@
 
-import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +12,8 @@ import Order from './Components/Orders/Order';
 import Admin from './Components/Admin/Admin'
 import Navbar from './Components/Navbar/Navbar';
 import Checkout from './Components/Checkout/Checkout';
+import Manage from './Components/Manage/Manage';
+import Nomatch from './Components/Nomatch/Nomatch'
 
 export const UserContext = createContext()
 
@@ -43,8 +44,11 @@ function App() {
           <PrivateRoute path="/checkout/:id">
             <Checkout></Checkout>
           </PrivateRoute>
+          <PrivateRoute path="/manage">
+            <Manage></Manage>
+          </PrivateRoute>
           <Route path="*">
-            <h1>Page not found</h1>
+            <Nomatch></Nomatch>
           </Route>
         </Switch>
         </Router>

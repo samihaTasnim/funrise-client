@@ -1,29 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../App';
-const Order = () => {
+import React, { useEffect, useState } from 'react';
 
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+const Manage = () => {
+
   const [info, setInfo] = useState([])
-
-  const email = loggedInUser.email;
   useEffect(() => {
-    fetch(`https://gentle-cove-64506.herokuapp.com/orders/${email}`)
+    fetch('https://gentle-cove-64506.herokuapp.com/toys')
     .then(res => res.json())
     .then(data => setInfo(data))
-  },[email])
+  },[])
 
   return (
     <div className="container mt-5">
-      <h2 className="m-3">Order history</h2>
-      <p>Ordered by: {info[0] && info[0].email}</p>
+      <h2 className="m-3">Manage Product</h2>
       <div className="row">
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">Description</th>
-              <th scope="col">Quantity</th>
+              <th scope="col">Product name</th>
+              <th scope="col">Weigth</th>
               <th scope="col">Price</th>
-              <th scope="col">Date</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -31,7 +27,7 @@ const Order = () => {
               info.map(product => (
                 <tr>
                   <td>{product.name}</td>
-                  <td>1</td>
+                  <td>{product.weight}</td>
                   <td>$ {product.price}</td>
                   <td>{product.date}</td>
                 </tr>
@@ -44,4 +40,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default Manage;

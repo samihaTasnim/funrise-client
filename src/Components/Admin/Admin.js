@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import Sidebar from './Sidebar';
 
 const Admin = () => {
 
@@ -44,9 +45,9 @@ const Admin = () => {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="row g-5">
         <div className="col-md-4">
-          <h3>SideBar</h3>
+          <Sidebar></Sidebar>
         </div>
         <div className="col-md-8">
 
