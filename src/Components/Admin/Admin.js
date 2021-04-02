@@ -14,7 +14,7 @@ const Admin = () => {
       imgage: image,
       price: data.price,
       weight: data.weight
-    };
+    }; 
     const url = `https://gentle-cove-64506.herokuapp.com/addProduct`;
     
     fetch(url, {
@@ -42,7 +42,6 @@ const Admin = () => {
       });
   }
 
-
   return (
     <div className="container">
       <div className="row g-5">
@@ -57,27 +56,26 @@ const Admin = () => {
               <div className="col-md-6">
                 <label htmlFor="name">Product Name:</label>
                 <br />
-                <input name="name" className="p-1" ref={register} />
+                <input name="name" className="p-1" ref={register} required/>
               </div>
               <div className="col-md-6">
                 <label htmlFor="price">Price:</label>
                 <br />
-                <input name="price" ref={register({ required: true })} />
+                <input name="price" ref={register({ required: true })} required/>
               </div>
             </div>
             <div className="row">
               <div className="col-md-6">
                 <label htmlFor="weight">Weight:</label>
                 <br />
-                <input name="weight" ref={register({ required: true })} />
+                <input name="weight" ref={register({ required: true })} required/>
               </div>
               <div className="col-md-6 ">
                 <label htmlFor="file">Add photo:</label>
-                <input type="file" className="p-2" name="file" onChange={getImage}/>
+                <input type="file" className="p-2" name="file" onChange={getImage} required/>
               </div>
             </div>
-            <input type="submit" value="Add" />
-
+             <button type="submit" className="btn btn-primary mb-3" disabled={!image} >Add product</button>
           </form>
 
         </div>

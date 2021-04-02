@@ -5,6 +5,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 const Manage = () => {
 
   const [info, setInfo] = useState([])
+
   useEffect(() => {
     fetch('https://gentle-cove-64506.herokuapp.com/toys')
     .then(res => res.json())
@@ -12,13 +13,12 @@ const Manage = () => {
   },[])
 
    const deleteItem = (id) => {
-     console.log(id);
-     fetch(`https://gentle-cove-64506.herokuapp.com/delete/${id}`, {
+      fetch(`https://gentle-cove-64506.herokuapp.com/delete/${id}`, {
       method: 'DELETE'
       })
       .then(res => res.json())
       .then(result => {
-          console.log(result);
+        console.log(result);
       })
    }
 
